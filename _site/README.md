@@ -17,3 +17,7 @@ This is a Jekyll site based on the provided visual specification.
 *   `_layouts`: HTML page layouts (e.g., default).
 *   `assets`: CSS, images, JavaScript.
 *   Markdown files (`.md`) or HTML files (`.html`) in the root directory create pages.
+
+
+### Inspiration
+https://eugeneyan.com/

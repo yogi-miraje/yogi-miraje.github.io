@@ -23,7 +23,11 @@ html, body {
 .sidebar {
   width: 300px; /* Fixed width */
   flex-shrink: 0;
-  background-color: #2c3e50; /* Placeholder dark blue/grey */
+  background-color: #2c3e50; /* Placeholder dark blue/grey */ /* Restored background color */
+  /* background-image: linear-gradient(rgba(44, 62, 80, 0.5), rgba(44, 62, 80, 0.5)), url('/assets/img/profile.png'); */ /* Removed background image */
+  /* background-size: contain; */ /* Removed background size */
+  /* background-position: top center; */ /* Removed background position */
+  /* background-repeat: no-repeat; */ /* Removed background repeat */
   color: #ecf0f1; /* Placeholder light grey/white */
   padding: 40px 30px;
   position: fixed; /* Fixed position */
@@ -31,6 +35,7 @@ html, body {
   overflow-y: auto; /* Allow scrolling if content overflows */
   display: flex;
   flex-direction: column; /* Stack items vertically */
+  /* justify-content: center; */ /* Removed vertical centering */
 }
 
 .sidebar-content {
@@ -38,7 +43,8 @@ html, body {
 }
 
 .profile-picture {
-  max-width: 100px; /* Reverted size */
+  /* max-width: 150px; */ /* Increased size by 50% */
+  max-width: 195px; /* Increased size by another 30% */
   display: block;
   margin: 0 0 20px 0; /* Align left and add space below */
   border-radius: 50%; /* Make it circular if desired */
@@ -85,7 +91,7 @@ html, body {
 
 /* Social Links Styling */
 .social-links {
-  margin-top: auto; /* Push to the bottom */
+  margin-top: auto; /* Restored to push to the bottom */
   padding-top: 20px; /* Space above social links */
   display: flex;
   justify-content: flex-start; /* Align left */
