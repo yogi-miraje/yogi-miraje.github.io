@@ -1,0 +1,40 @@
+<aside class="sidebar">
+  <div class="sidebar-content">
+    <img src="{{ '/assets/img/profile.jpg' | relative_url }}" alt="Profile Picture" class="profile-picture">
+    
+    <h1 class="site-title">{{ site.title | escape }}</h1>
+    <p class="site-description">{{ site.description | escape }}</p>
+    
+    <nav class="main-nav">
+      <ul>
+        {% assign current_url = page.url | downcase %}
+        {% assign is_post_or_blog = false %}
+        {% if page.layout == 'post' or current_url == '/blog.html' %}
+          {% assign is_post_or_blog = true %}
+        {% endif %}
+
+        <li class="{% if current_url == '/' %}active{% endif %}">
+          <a href="{{ '/' | relative_url }}">Latest</a>
+        </li>
+        <li class="{% if is_post_or_blog %}active{% endif %}">
+          <a href="{{ '/blog.html' | relative_url }}">Blog</a>
+        </li>
+        <li class="{% if current_url == '/about.html' %}active{% endif %}">
+          <a href="{{ '/about.html' | relative_url }}">About</a>
+        </li>
+        <li class="{% if current_url == '/contact.html' %}active{% endif %}">
+          <a href="{{ '/contact.html' | relative_url }}">Contact</a>
+        </li>
+      </ul>
+    </nav>
+    
+    <div class="social-links">
+      <a href="https://x.com/yogiNotTheBear" target="_blank" rel="noopener noreferrer" aria-label="X (formerly Twitter)">
+        <span style="background-color: black; color: white; border-radius: 50%; padding: 0.2em; display: inline-flex; align-items: center; justify-content: center; width: 1.4em; height: 1.4em; line-height: 1; font-size: 0.9em;">𝕏</span>
+      </a> 
+      <a href="https://www.linkedin.com/in/mirajey/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <span style="background-color: #0077b5; color: white; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; width: 1.4em; height: 1.4em; line-height: 1; font-size: 0.9em;"><i class="fab fa-linkedin-in"></i></span>
+      </a> 
+    </div>
+  </div>
+</aside> 

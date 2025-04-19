@@ -1,0 +1,200 @@
+/* Basic Reset & Body Styling */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Placeholder font */
+  line-height: 1.6;
+}
+
+/* Main Container - Flexbox Layout */
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: 300px; /* Fixed width */
+  flex-shrink: 0;
+  background-color: #2c3e50; /* Placeholder dark blue/grey */
+  color: #ecf0f1; /* Placeholder light grey/white */
+  padding: 40px 30px;
+  position: fixed; /* Fixed position */
+  height: 100%;
+  overflow-y: auto; /* Allow scrolling if content overflows */
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+}
+
+.sidebar-content {
+  /* Add styles if needed to specifically contain sidebar elements */
+}
+
+.profile-picture {
+  max-width: 100px; /* Reverted size */
+  display: block;
+  margin: 0 0 20px 0; /* Align left and add space below */
+  border-radius: 50%; /* Make it circular if desired */
+}
+
+.site-title {
+  font-family: Georgia, serif; /* Placeholder serif font */
+  font-size: 2.5em;
+  text-align: left;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.site-description {
+  font-size: 0.9em;
+  margin-bottom: 30px;
+  color: #bdc3c7; /* Lighter grey */
+  text-align: left;
+}
+
+/* Navigation Styling */
+.main-nav ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.main-nav li {
+  margin-bottom: 10px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #ecf0f1;
+  font-size: 1.1em;
+  transition: color 0.2s ease;
+}
+
+.main-nav a:hover,
+.main-nav li.active a {
+  color: #ffffff; /* Brighter on hover and for active link */
+  font-weight: bold; /* Make active link bold */
+}
+
+/* Social Links Styling */
+.social-links {
+  margin-top: auto; /* Push to the bottom */
+  padding-top: 20px; /* Space above social links */
+  display: flex;
+  justify-content: flex-start; /* Align left */
+  gap: 15px; /* Space between icons */
+}
+
+.social-links a {
+  color: #bdc3c7; /* Icon color */
+  font-size: 1.2em;
+  text-decoration: none;
+  width: 35px;
+  height: 35px;
+  line-height: 35px; /* Vertically center icon */
+  text-align: center;
+  border: 1px solid #bdc3c7;
+  border-radius: 50%;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.social-links a:hover {
+  background-color: #ecf0f1;
+  color: #2c3e50; /* Dark color on hover */
+}
+
+/* Main Content Area Styling */
+.content {
+  flex-grow: 1;
+  padding: 50px 60px;
+  margin-left: 300px; /* Account for fixed sidebar width */
+  background-color: #ffffff;
+}
+
+.post-header {
+  margin-bottom: 30px;
+}
+
+.post-title {
+  font-family: Georgia, serif; /* Placeholder serif font */
+  font-size: 2.8em;
+  color: #34495e; /* Dark grey */
+  margin-bottom: 5px;
+}
+
+.post-meta {
+  font-size: 0.9em;
+  color: #95a5a6; /* Lighter grey */
+}
+
+.featured-image img {
+  max-width: 25%; /* Further reduced size to 25% */
+  height: auto;
+  display: block;
+  margin-bottom: 30px;
+}
+
+.post-content {
+  font-size: 1.1em;
+  color: #34495e;
+  line-height: 1.7;
+}
+
+.post-content p {
+  margin-bottom: 1.5em;
+}
+
+/* Style for Back to Blog link */
+.back-to-blog {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #eee; /* Separator */
+}
+
+.back-to-blog a {
+  color: #34495e;
+  text-decoration: none;
+}
+
+.back-to-blog a:hover {
+  text-decoration: underline;
+}
+
+/* Basic Responsiveness */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    position: static; /* Remove fixed positioning */
+    height: auto;
+    padding: 20px;
+  }
+
+  .sidebar-content {
+     /* Adjust sidebar content alignment/layout for mobile if needed */
+  }
+
+  .social-links {
+    margin-top: 20px; /* Adjust spacing */
+    justify-content: center; /* Center icons on mobile */
+  }
+
+  .content {
+    margin-left: 0; /* Remove margin */
+    padding: 30px 20px;
+  }
+
+  .post-title {
+    font-size: 2.2em;
+  }
+} 

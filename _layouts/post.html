@@ -1,0 +1,30 @@
+---
+layout: default
+---
+
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      {{ page.date | date: "%d %B %Y" }}
+      {% if page.author %}
+        &bull; {{ page.author | escape }}
+      {% endif %}
+    </p>
+  </header>
+
+  {% if page.featured_image %}
+  <div class="featured-image">
+    <img src="{{ page.featured_image | relative_url }}" alt="{{ page.title | escape }}">
+  </div>
+  {% endif %}
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  <div class="back-to-blog">
+    <a href="{{ '/blog.html' | relative_url }}">&larr; Back to Blog</a>
+  </div>
+
+</article> 
