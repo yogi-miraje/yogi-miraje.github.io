@@ -1,214 +1,65 @@
 ---
 layout: home
-title: Building effective AI applications
+title: Yogi Miraje
 ---
 
-<article class="post">
-  <header class="post-header">
-    <h1 class="post-title">Building effective AI applications</h1>
-    <span class="post-meta">30 April 2025</span>
-  </header>
+<div class="post-content bio-content">
+  <p>Hi, I'm Yogi.</p>
 
-  <div class="post-content">
-    
-    <p>In the rush to implement AI solutions, organizations often jump straight to the most cutting-edge approaches without carefully considering whether they're actually the best fit for their specific problems. This can lead to unnecessarily complex, expensive, and difficult-to-maintain systems. Based on our experience working with dozens of teams implementing AI across industries, we've developed a decision framework to guide you through the process of selecting and building the right AI solution.</p>
+  <p>I build software systems that turn complex ideas into reliable products. My path has taken me through backend engineering, machine learning, and now systems where language models are part of the stack.</p>
 
-    <h3>Step 1: Assess AI/ML Necessity</h3>
+  <p>That path has shaped how I think.</p>
 
-    <p>Before diving into any AI implementation, the most crucial question is whether you need AI/ML at all. Building and maintaining production-grade AI/ML solutions is challenging, resource-intensive, and often more complex than traditional software approaches.</p>
+  <p>I don't approach these problems from the demo outward. I approach them from the failure modes inward: what breaks, what scales, what can be trusted, what needs to be measured, and what happens when real users start depending on it.</p>
 
-    <p><strong>Key questions to ask:</strong></p>
-    <ul>
-      <li>Can your problem be solved effectively with rule-based systems or traditional software?</li>
-      <li>What specific advantages would AI/ML bring to this particular use case?</li>
-      <li>Does the business value of using AI/ML outweigh the implementation and maintenance costs?</li>
-    </ul>
+  <p>The work that excites me most is not the loudest version of AI. It's the quieter kind: a well-designed system that removes a bottleneck, compresses weeks of effort into minutes, or gives people a clearer way to think through complex work.</p>
 
-    <p>Many problems that organizations rush to solve with AI could be addressed more efficiently with simpler solutions. Only proceed with AI/ML if there's a clear advantage that can't be achieved through traditional methods.</p>
+  <p>My default question is simple:</p>
 
-    <h3>Step 2: Initial Assessment</h3>
+  <blockquote>What is the simplest thing that actually works?</blockquote>
 
-    <p>If you've determined that an AI/ML approach is warranted, the next decision point is whether you need specifically GenAI (generative AI powered by large language models) or if traditional machine learning approaches would suffice.</p>
+  <p>That usually means resisting complexity before adding it. Before reaching for a larger model, a multi-step workflow, or a network of agents, I want to understand the problem underneath: the user need, the edge cases, the cost of being wrong, and the point where automation should stop.</p>
 
-    <p><strong>Consider traditional ML when:</strong></p>
-    <ul>
-      <li>Your problem involves clearly defined patterns (classification, regression, clustering)</li>
-      <li>You have structured data and well-defined outputs</li>
-      <li>Explainability and predictability are critical</li>
-      <li>You need maximum efficiency at scale</li>
-    </ul>
+  <p>I'm most interested in the space between engineering judgment and emerging AI capability — where systems need to be useful, understandable, testable, and safe enough to put in front of real people.</p>
 
-    <p><strong>Consider GenAI when:</strong></p>
-    <ul>
-      <li>You're dealing with unstructured data like text, images, or code</li>
-      <li>Your application requires natural language understanding or generation</li>
-      <li>The problem involves complex reasoning or creative outputs</li>
-      <li>Traditional ML approaches have proven insufficient</li>
-    </ul>
+  <p>To me, good AI work is not about making software seem intelligent.</p>
 
-    <h3>Step 3: Architecture Selection</h3>
+  <p>It is about making software more capable while keeping the system grounded, observable, and under control.</p>
+</div>
 
-    <p>If you've decided to implement a GenAI solution, the next major decision is between workflows and agents:</p>
+<section class="podcast-section">
+  <h2 class="section-heading">AI Blindspot</h2>
+  <p class="section-subheading">A human-in-the-loop podcast exploring AI's frontiers — and the blind spots we overlook.</p>
+  <ul class="post-list" id="episode-list">
+    <li class="episode-loading">Loading episodes…</li>
+  </ul>
+</section>
 
-    <p><strong>Workflows</strong> are systems where LLMs and tools are orchestrated through predefined code paths. Choose workflows when:</p>
-    <ul>
-      <li>Tasks can be cleanly decomposed into fixed subtasks</li>
-      <li>Predictability and consistency are paramount</li>
-      <li>You have well-defined processes with clear boundaries</li>
-    </ul>
+<script>
+(function () {
+  var RSS = 'https://anchor.fm/s/ff1b9374/podcast/rss';
+  var API = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(RSS);
+  var list = document.getElementById('episode-list');
 
-    <p><strong>Agents</strong> are systems where LLMs dynamically direct their own processes and tool usage. Choose agents when:</p>
-    <ul>
-      <li>You need flexibility and model-driven decision-making</li>
-      <li>Tasks are open-ended and can't be easily hardcoded</li>
-      <li>The number of steps required can't be predicted in advance</li>
-    </ul>
-
-    <h3>Step 4: Building Block Selection</h3>
-
-    <p>Once you've chosen your architectural approach, select the appropriate building blocks:</p>
-
-    <p>For <strong>workflows</strong>, consider patterns like:</p>
-    <ul>
-      <li>Prompt chaining for breaking complex tasks into sequential steps</li>
-      <li>Routing for directing different inputs to specialized handlers</li>
-      <li>Parallelization for breaking tasks into independent components</li>
-      <li>Orchestrator-workers for dynamic task delegation</li>
-      <li>Evaluator-optimizer for iterative refinement</li>
-    </ul>
-
-    <p>For <strong>agents</strong>, focus on:</p>
-    <ul>
-      <li>Augmenting LLMs with retrieval, tools, and memory</li>
-      <li>Implementing appropriate feedback mechanisms</li>
-      <li>Creating proper ground-truth validation</li>
-    </ul>
-
-    <h3>Step 5: Implementation Approach</h3>
-
-    <p>When implementing your solution:</p>
-    <ul>
-      <li>Start with direct LLM APIs rather than complex frameworks</li>
-      <li>If using frameworks, ensure you understand the underlying code</li>
-      <li>Follow core implementation principles: simplicity, transparency, and careful interface design</li>
-    </ul>
-
-    <h3>Step 6: Tool Engineering</h3>
-
-    <p>Tool engineering is critical for effective GenAI systems:</p>
-    <ul>
-      <li>Design tool specifications with the same care as your prompts</li>
-      <li>Choose formats that LLMs can work with easily</li>
-      <li>Create intuitive agent-computer interfaces (ACI)</li>
-      <li>Test extensively to identify potential failure modes</li>
-    </ul>
-
-    <h3>Step 7: Testing &amp; Iteration</h3>
-
-    <p>Rigorous testing is essential:</p>
-    <ul>
-      <li>Measure performance against clear success criteria</li>
-      <li>Test tools extensively in isolation and integration</li>
-      <li>For agents, use sandboxed environments with appropriate guardrails</li>
-      <li>Iterate based on real-world performance</li>
-    </ul>
-
-    <h3>Step 8: Deployment</h3>
-
-    <p>When deploying your solution:</p>
-    <ul>
-      <li>Add complexity only when it demonstrably improves outcomes</li>
-      <li>Ensure implementations are debuggable and maintainable</li>
-      <li>Consider reducing abstraction layers for production systems</li>
-      <li>Implement appropriate monitoring and fallback mechanisms</li>
-    </ul>
-
-    <h3>Conclusion</h3>
-
-    <p>The path from traditional software to GenAI agents is not a straight line of "progress" but rather a decision tree with multiple valid options at each node. The most successful AI implementations are those that select the simplest approach that effectively solves the problem at hand. By following this decision framework, you can avoid unnecessary complexity while still leveraging the full power of AI where it truly adds value.</p>
-
-    <p>Remember: The goal isn't to build the most sophisticated AI system possible, but to build the right system for your specific needs.</p>
-
-    <pre><code>
-┌───────────────────────────────────────────┐
-│ START                                     │
-└─────────────────────┬─────────────────────┘
-                      ▼
-┌───────────────────────────────────────────┐
-│ 1. ASSESS AI/ML NECESSITY                 │
-│ Evaluate if AI/ML required vs traditional │
-│ solutions. AI/ML is costly to maintain.   │
-│ Consider business impact vs costs.        │
-└─────────────────────┬─────────────────────┘
-                      ▼
-┌───────────────────────────────────────────┐
-│ Is AI/ML actually needed?                 │
-└──────────┬──────────────────┬─────────────┘
-           │                  │
-           ▼ No              ▼ Yes
-┌──────────────────┐ ┌─────────────────────┐
-│ Use traditional  │ │ 2. INITIAL ASSESS   │
-│ approaches       │ │ Identify needs &    │
-└──────────────────┘ │ consider GenAI      │
-                     └─────────┬───────────┘
-                               │
-                               ▼
-┌───────────────────────────────────────────┐
-│ Need GenAI?                               │
-└──────────┬──────────────────┬─────────────┘
-           │                  │
-           ▼ No              ▼ Yes
-┌──────────────────┐ ┌─────────────────────┐
-│ Use ML approach  │ │ 3. ARCHITECTURE     │
-└──────────────────┘ │ Choose workflow or  │
-                     │ agent approach       │
-                     └─────────┬───────────┘
-                               ▼
-┌───────────────────────────────────────────┐
-│ Workflow or Agent?                        │
-└──────────┬──────────────────┬─────────────┘
-           │                  │
-           ▼ Predictable     ▼ Flexible
-┌──────────────────┐ ┌─────────────────────┐
-│ Use Workflows    │ │ Use Agents          │
-│ For consistency  │ │ For flexibility     │
-└──────────┬───────┘ └─────────┬───────────┘
-           │                   │
-           └─────────┬─────────┘
-                     ▼
-┌───────────────────────────────────────────┐
-│ 4. BUILDING BLOCKS                        │
-│ Start with augmented LLM. Select          │
-│ appropriate patterns for your needs.      │
-└─────────────────────┬─────────────────────┘
-                      ▼
-┌───────────────────────────────────────────┐
-│ 5. IMPLEMENTATION                         │
-│ Start with direct APIs over frameworks.   │
-│ Understand the underlying code.           │
-└─────────────────────┬─────────────────────┘
-                      ▼
-┌───────────────────────────────────────────┐
-│ 6. TOOL ENGINEERING                       │
-│ Design tool specs carefully. Create       │
-│ model-friendly interfaces.                │
-└─────────────────────┬─────────────────────┘
-                      ▼
-┌───────────────────────────────────────────┐
-│ 7. TESTING                               │
-│ Test tools extensively. Measure and       │
-│ iterate. Use sandboxed environments.      │
-└─────────────────────┬─────────────────────┘
-                      ▼
-┌───────────────────────────────────────────┐
-│ 8. DEPLOYMENT                            │
-│ Add complexity only when needed.          │
-│ Ensure debuggable implementation.         │
-└─────────────────────┬─────────────────────┘
-                      ▼
-┌───────────────────────────────────────────┐
-│ END                                       │
-└───────────────────────────────────────────┘
-    </code></pre>
-  </div>
-</article>
+  fetch(API)
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      if (data.status !== 'ok' || !data.items.length) throw new Error();
+      list.innerHTML = data.items.map(function (ep) {
+        var date = new Date(ep.pubDate).toLocaleDateString('en-US', {
+          year: 'numeric', month: 'long', day: 'numeric'
+        });
+        var desc = ep.description.replace(/<[^>]+>/g, '').trim().substring(0, 160);
+        if (desc.length === 160) desc += '…';
+        return '<li>' +
+          '<a class="post-link" href="' + ep.link + '">' + ep.title + '</a>' +
+          '<span class="post-meta">' + date + '</span>' +
+          (desc ? '<p class="episode-desc">' + desc + '</p>' : '') +
+          '</li>';
+      }).join('');
+    })
+    .catch(function () {
+      list.innerHTML = '<li>Could not load episodes — <a href="https://podcasts.apple.com/us/podcast/ai-blindspot/id1768690362">listen on Apple Podcasts</a>.</li>';
+    });
+}());
+</script>

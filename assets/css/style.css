@@ -281,6 +281,50 @@ body {
   flex-shrink: 0;
 }
 
+/* ─── Bio / Home ────────────────────────────────────────────── */
+.bio-content {
+  margin-bottom: 56px;
+}
+
+/* ─── Podcast Section ────────────────────────────────────────── */
+.podcast-section {
+  border-top: 1px solid var(--color-border);
+  padding-top: 40px;
+}
+
+.section-heading {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+
+.section-subheading {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  margin-bottom: 24px;
+}
+
+.episode-desc {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  margin-top: 4px;
+  line-height: 1.55;
+}
+
+.episode-loading {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  font-style: italic;
+  padding: 18px 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
 /* ─── Back to Blog ───────────────────────────────────────────── */
 .back-to-blog {
   margin-top: 48px;
