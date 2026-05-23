@@ -108,8 +108,8 @@ body {
 }
 
 .hero-photo {
-  width: 84px;
-  height: 84px;
+  width: 128px;
+  height: 128px;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
@@ -375,8 +375,8 @@ body {
   }
 
   .hero-photo {
-    width: 70px;
-    height: 70px;
+    width: 96px;
+    height: 96px;
   }
 
   .post-title {
