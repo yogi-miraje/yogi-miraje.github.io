@@ -1,0 +1,19 @@
+<header class="site-masthead">
+  <div class="masthead-inner">
+    <a href="{{ '/' | relative_url }}" class="masthead-name">{{ site.title | escape }}</a>
+    <nav class="masthead-nav">
+      <ul>
+        {% assign current_url = page.url | downcase %}
+        <li class="{% if current_url contains 'podcast' %}active{% endif %}">
+          <a href="{{ '/podcast.html' | relative_url }}">Podcast</a>
+        </li>
+        <li class="{% if page.layout == 'post' or current_url contains 'blog' %}active{% endif %}">
+          <a href="{{ '/blog.html' | relative_url }}">Writing</a>
+        </li>
+        <li class="{% if current_url contains 'contact' %}active{% endif %}">
+          <a href="{{ '/contact.html' | relative_url }}">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

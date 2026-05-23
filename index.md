@@ -1,17 +1,31 @@
 ---
-layout: default
-title: Yogendra Miraje
+layout: home
+title: Yogi Miraje
 ---
 
-<section class="intro-section">
-  <h1>Hi, I am Yogi.</h1>
+<div class="post-content">
+  <div class="intro">
+    <img src="{{ '/assets/img/profile.png' | relative_url }}" alt="Yogi Miraje" class="intro-photo">
+    <div class="lead">
+      <p>Hi, I'm Yogi</p>
+      <p>I work on bringing frontier AI into real-world applications by building systems that stay grounded, observable, and under control.</p>
+      <p>Currently, I'm a Principal AI Engineer at FactSet.</p>
+    </div>
+  </div>
 
-  <p>I'm an AI engineer with 16 years of building software systems — starting in backend engineering, moving through ML, and landing squarely in the world of AI. That journey shapes how I think: I come to AI problems with an engineer's instinct for what breaks in production, not just what works in a notebook.</p>
+  <hr class="content-divider">
 
-  <p>What excites me most isn't the hype — it's the rare moment when a well-designed system quietly removes a bottleneck that used to take a team weeks to untangle. We're at a point where the gap between a hard problem and a working solution has never been smaller, and I find that genuinely thrilling.</p>
+  <p>My path has taken me through backend engineering, machine learning, and now systems where language models are part of the stack.</p>
 
-  <p>My approach is grounded in one question: <em>what's the simplest thing that actually works?</em> I resist the pull toward complexity for its own sake. Before reaching for a large model or a multi-agent pipeline, I want to understand the problem deeply — the edge cases, the failure modes, the real cost of being wrong. That first-principles thinking is what separates AI that ships and holds up in production from AI that impresses in a demo and breaks in the wild.</p>
+  <p>That path shaped how I think.</p>
 
-  <p>When I do integrate AI, I treat it as a precision tool: scoped clearly, evaluated rigorously, and always with a human in the loop where it matters. My focus is on building AI that's not just powerful — but grounded, aligned, and truly useful in practice.</p>
-</section>
+  <p>I don't approach these problems from the demo outward. I approach them from the failure modes inward: what breaks, what scales, what can be trusted, what needs to be measured, and what happens when real users start depending on it.</p>
 
+  <p>My default question is simple:</p>
+
+  <blockquote>What is the simplest thing that actually works?</blockquote>
+
+  <p>That usually means resisting complexity before adding it. Before reaching for a larger model, a multi-step workflow, or a network of agents, I want to understand the problem underneath: the user need, the edge cases, the cost of being wrong, and the point where automation should stop.</p>
+
+  <p>I'm most interested in the space between engineering judgment and emerging AI capability — turning frontier AI into real-world systems that are grounded enough to trust, observable enough to improve, and controlled enough to use in production.</p>
+</div>
