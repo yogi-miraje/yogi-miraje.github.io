@@ -35,7 +35,8 @@ title: Podcast
           return el ? el.textContent.trim() : '';
         };
         var title = get('title');
-        var link = get('link');
+        var guid = get('guid');
+        var link = (guid && guid.indexOf('http') === 0 ? guid : null) || get('link');
         var date = new Date(get('pubDate')).toLocaleDateString('en-US', {
           year: 'numeric', month: 'long', day: 'numeric'
         });
