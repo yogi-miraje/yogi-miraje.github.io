@@ -238,6 +238,18 @@ html, body {
   background-color: #34495e;
 }
 
+.episode-desc {
+  font-size: 0.95em;
+  color: #7f8c8d;
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+.episode-loading {
+  color: #95a5a6;
+  font-style: italic;
+}
+
 /* Basic Responsiveness */
 @media (max-width: 768px) {
   .container {
