@@ -82,7 +82,7 @@ body {
 }
 
 .masthead-nav a:hover {
-  color: var(--color-text);
+  color: var(--color-accent);
 }
 
 .masthead-nav li.active a {
