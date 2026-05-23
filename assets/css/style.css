@@ -38,30 +38,17 @@ body {
 .masthead-inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 44px 24px 24px;
+  padding: 32px 24px 20px;
   display: flex;
-  align-items: flex-start;
+  align-items: baseline;
+  justify-content: space-between;
   gap: 26px;
   border-bottom: 1px solid var(--color-border);
 }
 
-.masthead-avatar {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
-}
-
-.masthead-text {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
 .masthead-name {
   font-family: var(--font-serif);
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 600;
   color: var(--color-text);
   letter-spacing: -0.03em;
@@ -73,18 +60,9 @@ body {
   color: var(--color-accent);
 }
 
-.masthead-tagline {
-  font-family: var(--font-sans);
-  font-size: 0.9rem;
-  color: var(--color-muted);
-  margin-top: 5px;
-}
-
 /* ─── Navigation ─────────────────────────────────────────────── */
 .masthead-nav {
   flex-shrink: 0;
-  align-self: flex-start;
-  padding-top: 4px;
 }
 
 .masthead-nav ul {
@@ -271,11 +249,34 @@ body {
   flex-shrink: 0;
 }
 
-/* ─── Lead / Home ───────────────────────────────────────────── */
+/* ─── Intro / Home ──────────────────────────────────────────── */
+.intro {
+  display: flex;
+  align-items: stretch;
+  gap: 28px;
+}
+
+.intro-photo {
+  width: 168px;
+  flex-shrink: 0;
+  align-self: stretch;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.intro .lead {
+  flex: 1;
+  min-width: 0;
+}
+
 .lead p {
   font-size: 1.2rem;
   line-height: 1.65;
   color: var(--color-text);
+}
+
+.lead p:last-child {
+  margin-bottom: 0;
 }
 
 .lead p:first-child {
@@ -334,21 +335,12 @@ body {
   }
 
   .masthead-inner {
-    padding: 32px 18px 20px;
-    gap: 18px;
-  }
-
-  .masthead-avatar {
-    width: 88px;
-    height: 88px;
+    padding: 26px 18px 18px;
+    gap: 16px;
   }
 
   .masthead-name {
-    font-size: 1.4rem;
-  }
-
-  .masthead-nav {
-    margin-top: 16px;
+    font-size: 1.25rem;
   }
 
   .masthead-nav ul {
@@ -362,6 +354,17 @@ body {
 
   .main-content {
     padding: 32px 18px 72px;
+  }
+
+  .intro {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .intro-photo {
+    width: 130px;
+    height: 150px;
+    align-self: flex-start;
   }
 
   .post-title {

@@ -1,10 +1,6 @@
 <header class="site-masthead">
   <div class="masthead-inner">
-    <img src="{{ '/assets/img/profile.png' | relative_url }}" alt="{{ site.title | escape }}" class="masthead-avatar">
-    <div class="masthead-text">
-      <a href="{{ '/' | relative_url }}" class="masthead-name">{{ site.title | escape }}</a>
-      <p class="masthead-tagline">Builder &nbsp;|&nbsp; Engineer &nbsp;|&nbsp; Creator</p>
-    </div>
+    <a href="{{ '/' | relative_url }}" class="masthead-name">{{ site.title | escape }}</a>
     <nav class="masthead-nav">
       <ul>
         {% assign current_url = page.url | downcase %}

@@ -4,9 +4,12 @@ title: Yogi Miraje
 ---
 
 <div class="post-content">
-  <div class="lead">
-    <p>Hi, I'm Yogi.</p>
-    <p>I build software systems that turn complex ideas into reliable products. My path has taken me through backend engineering, machine learning, and now systems where language models are part of the stack.</p>
+  <div class="intro">
+    <img src="{{ '/assets/img/profile.png' | relative_url }}" alt="Yogi Miraje" class="intro-photo">
+    <div class="lead">
+      <p>Hi, I'm Yogi.</p>
+      <p>I build software systems that turn complex ideas into reliable products. My path has taken me through backend engineering, machine learning, and now systems where language models are part of the stack.</p>
+    </div>
   </div>
 
   <hr class="content-divider">
