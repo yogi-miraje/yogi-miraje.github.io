@@ -14,13 +14,16 @@
         {% endif %}
 
         <li class="{% if current_url == '/' %}active{% endif %}">
-          <a href="{{ '/' | relative_url }}">Latest</a>
+          <a href="{{ '/' | relative_url }}">Home</a>
         </li>
         <li class="{% if is_post_or_blog %}active{% endif %}">
-          <a href="{{ '/blog.html' | relative_url }}">Blog</a>
+          <a href="{{ '/writing.html' | relative_url }}">Writing</a>
         </li>
         <li class="{% if current_url == '/about.html' %}active{% endif %}">
           <a href="{{ '/about.html' | relative_url }}">About</a>
+        </li>
+        <li>
+          <a href="https://podcasts.apple.com/us/podcast/ai-blindspot/id1768690362" target="_blank" rel="noopener noreferrer">Podcast</a>
         </li>
         <li class="{% if current_url == '/contact.html' %}active{% endif %}">
           <a href="{{ '/contact.html' | relative_url }}">Contact</a>
