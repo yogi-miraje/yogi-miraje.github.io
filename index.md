@@ -1,14 +1,12 @@
 ---
-layout: default
-title: Building effective AI applications # This will be the browser tab title
+layout: home
+title: Building effective AI applications
 ---
 
-<article class="post"> 
-  <!-- Using 'post' class for consistent styling, but it's not a Jekyll post -->
+<article class="post">
   <header class="post-header">
-    <h1 class="post-title">Building effective AI applications</h1> 
+    <h1 class="post-title">Building effective AI applications</h1>
     <span class="post-meta">30 April 2025</span>
-    <!-- Removed date as it's not a dated post -->
   </header>
 
   <div class="post-content">
@@ -105,7 +103,7 @@ title: Building effective AI applications # This will be the browser tab title
       <li>Test extensively to identify potential failure modes</li>
     </ul>
 
-    <h3>Step 7: Testing & Iteration</h3>
+    <h3>Step 7: Testing &amp; Iteration</h3>
 
     <p>Rigorous testing is essential:</p>
     <ul>
@@ -213,4 +211,4 @@ title: Building effective AI applications # This will be the browser tab title
 └───────────────────────────────────────────┘
     </code></pre>
   </div>
-</article> 
+</article>

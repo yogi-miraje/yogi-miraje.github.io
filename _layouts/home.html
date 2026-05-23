@@ -1,0 +1,13 @@
+---
+layout: default
+---
+
+<section class="profile-hero">
+  <img src="{{ '/assets/img/profile.png' | relative_url }}" alt="{{ site.title | escape }}" class="hero-photo">
+  <div class="hero-text">
+    <h2 class="hero-name">{{ site.title | escape }}</h2>
+    <p class="hero-tagline">{{ site.description | escape }}</p>
+  </div>
+</section>
+
+{{ content }}
