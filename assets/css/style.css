@@ -31,47 +31,67 @@ body {
 }
 
 /* ─── Header ─────────────────────────────────────────────────── */
-.site-header {
-  position: sticky;
-  top: 0;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--color-border);
-  z-index: 100;
+.site-masthead {
+  background: var(--color-bg);
 }
 
-.header-inner {
+.masthead-inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 24px;
-  height: var(--header-height);
+  padding: 48px 24px 22px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-start;
+  gap: 26px;
+  border-bottom: 1px solid var(--color-border);
 }
 
-.site-name {
+.masthead-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.masthead-text {
+  display: flex;
+  flex-direction: column;
+  padding-top: 6px;
+}
+
+.masthead-name {
   font-family: var(--font-serif);
-  font-size: 1rem;
+  font-size: 1.6rem;
   font-weight: 600;
   color: var(--color-text);
+  letter-spacing: -0.03em;
   text-decoration: none;
-  letter-spacing: -0.01em;
+  transition: color 0.15s ease;
 }
 
-.site-name:hover {
+.masthead-name:hover {
   color: var(--color-accent);
 }
 
-/* ─── Navigation ─────────────────────────────────────────────── */
-.top-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 28px;
+.masthead-tagline {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  margin-top: 5px;
 }
 
-.top-nav a {
+/* ─── Navigation ─────────────────────────────────────────────── */
+.masthead-nav {
+  margin-top: 22px;
+}
+
+.masthead-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 26px;
+}
+
+.masthead-nav a {
   font-family: var(--font-sans);
   font-size: 0.875rem;
   font-weight: 400;
@@ -81,11 +101,11 @@ body {
   transition: color 0.15s ease;
 }
 
-.top-nav a:hover {
+.masthead-nav a:hover {
   color: var(--color-text);
 }
 
-.top-nav li.active a {
+.masthead-nav li.active a {
   color: var(--color-text);
   font-weight: 500;
 }
@@ -94,41 +114,9 @@ body {
 .main-content {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 52px 24px 96px;
+  padding: 40px 24px 96px;
 }
 
-/* ─── Profile Hero (Home) ────────────────────────────────────── */
-.profile-hero {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  padding-bottom: 44px;
-  margin-bottom: 44px;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.hero-photo {
-  width: 128px;
-  height: 128px;
-  border-radius: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
-}
-
-.hero-name {
-  font-family: var(--font-serif);
-  font-size: 1.45rem;
-  font-weight: 600;
-  letter-spacing: -0.025em;
-  margin-bottom: 3px;
-  color: var(--color-text);
-}
-
-.hero-tagline {
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  color: var(--color-muted);
-}
 
 /* ─── Post / Article ─────────────────────────────────────────── */
 .post-header {
@@ -343,33 +331,35 @@ body {
     font-size: 16px;
   }
 
-  .header-inner {
-    padding: 0 18px;
-  }
-
-  .main-content {
-    padding: 36px 18px 72px;
-  }
-
-  .top-nav ul {
+  .masthead-inner {
+    padding: 32px 18px 20px;
     gap: 18px;
   }
 
-  .top-nav a {
+  .masthead-avatar {
+    width: 88px;
+    height: 88px;
+  }
+
+  .masthead-name {
+    font-size: 1.4rem;
+  }
+
+  .masthead-nav {
+    margin-top: 16px;
+  }
+
+  .masthead-nav ul {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .masthead-nav a {
     font-size: 0.82rem;
   }
 
-  .profile-hero {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
-    padding-bottom: 32px;
-    margin-bottom: 32px;
-  }
-
-  .hero-photo {
-    width: 96px;
-    height: 96px;
+  .main-content {
+    padding: 32px 18px 72px;
   }
 
   .post-title {
