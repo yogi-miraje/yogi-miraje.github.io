@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Blog
+title: Writing
 ---
 
 <div class="post">
@@ -13,7 +13,7 @@ title: Blog
     <ul class="post-list">
       <li>
         <h2>
-          <a class="post-link" href="{{ '/' | relative_url }}">Building effective AI applications</a>
+          <a class="post-link" href="{{ '/building-effective-ai-applications.html' | relative_url }}">Building effective AI applications</a>
         </h2>
         <span class="post-meta">30 April 2025</span>
       </li>
@@ -24,11 +24,9 @@ title: Blog
             <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
           </h2>
           <span class="post-meta">{{ post.date | date: "%d %B %Y" }}</span>
-          <!-- Optional: Add post excerpt -->
-          <!-- {{ post.excerpt }} -->
         </li>
       {% endfor %}
     </ul>
 
   </div>
-</div> 
+</div>

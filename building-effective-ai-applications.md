@@ -1,73 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: default
+title: Building effective AI applications
+---
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Building effective AI applications</title>
-  <meta name="description" content="AI Engineer">
-
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="canonical" href="http://localhost:4000/">
-  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Yogendra Miraje" /> 
-
-  <!-- Add link to Font Awesome for icons - Replace if using SVGs -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-  <!-- Add links to Google Fonts if needed - Specify fonts here -->
-  <!-- e.g., <link href="https://fonts.googleapis.com/css?family=Merriweather:400,700|Open+Sans:400,700&display=swap" rel="stylesheet"> -->
-
-</head> 
-
-<body>
-  <div class="container">
-    <aside class="sidebar">
-  <div class="sidebar-content">
-    <img src="/assets/img/profile.png" alt="Profile Picture" class="profile-picture">
-    
-    <h1 class="site-title">Yogendra Miraje</h1>
-    <p class="site-description">AI Engineer</p>
-    
-    <nav class="main-nav">
-      <ul>
-        
-        
-        
-
-        <li class="active">
-          <a href="/">Latest</a>
-        </li>
-        <li class="">
-          <a href="/blog.html">Blog</a>
-        </li>
-        <li class="">
-          <a href="/about.html">About</a>
-        </li>
-        <li class="">
-          <a href="/contact.html">Contact</a>
-        </li>
-      </ul>
-    </nav>
-    
-    <div class="social-links">
-      <a href="https://x.com/yogiNotTheBear" target="_blank" rel="noopener noreferrer" aria-label="X (formerly Twitter)">
-        <span style="background-color: black; color: white; border-radius: 50%; padding: 0.2em; display: inline-flex; align-items: center; justify-content: center; width: 1.4em; height: 1.4em; line-height: 1; font-size: 0.9em;">𝕏</span>
-      </a> 
-      <a href="https://www.linkedin.com/in/mirajey/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-        <span style="background-color: #0077b5; color: white; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; width: 1.4em; height: 1.4em; line-height: 1; font-size: 0.9em;"><i class="fab fa-linkedin-in"></i></span>
-      </a> 
-    </div>
-  </div>
-</aside> 
-    <main class="content">
-      <article class="post"> 
-  <!-- Using 'post' class for consistent styling, but it's not a Jekyll post -->
+<article class="post"> 
   <header class="post-header">
     <h1 class="post-title">Building effective AI applications</h1> 
     <span class="post-meta">30 April 2025</span>
-    <!-- Removed date as it's not a dated post -->
   </header>
 
   <div class="post-content">
@@ -164,7 +103,7 @@
       <li>Test extensively to identify potential failure modes</li>
     </ul>
 
-    <h3>Step 7: Testing &amp; Iteration</h3>
+    <h3>Step 7: Testing & Iteration</h3>
 
     <p>Rigorous testing is essential:</p>
     <ul>
@@ -209,7 +148,7 @@
            ▼ No              ▼ Yes
 ┌──────────────────┐ ┌─────────────────────┐
 │ Use traditional  │ │ 2. INITIAL ASSESS   │
-│ approaches       │ │ Identify needs &amp;    │
+│ approaches       │ │ Identify needs &    │
 └──────────────────┘ │ consider GenAI      │
                      └─────────┬───────────┘
                                │
@@ -273,9 +212,3 @@
     </code></pre>
   </div>
 </article>
-
-    </main>
-  </div>
-</body>
-
-</html> 
