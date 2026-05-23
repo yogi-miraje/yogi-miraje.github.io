@@ -281,32 +281,25 @@ body {
   flex-shrink: 0;
 }
 
-/* ─── Bio / Home ────────────────────────────────────────────── */
-.bio-content {
-  margin-bottom: 56px;
-}
-
-/* ─── Podcast Section ────────────────────────────────────────── */
-.podcast-section {
-  border-top: 1px solid var(--color-border);
-  padding-top: 40px;
-}
-
-.section-heading {
-  font-family: var(--font-serif);
+/* ─── Lead / Home ───────────────────────────────────────────── */
+.lead p {
   font-size: 1.2rem;
+  line-height: 1.65;
+  color: var(--color-text);
+}
+
+.lead p:first-child {
   font-weight: 600;
-  letter-spacing: -0.02em;
-  margin-bottom: 6px;
+  letter-spacing: -0.01em;
 }
 
-.section-subheading {
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  color: var(--color-muted);
-  margin-bottom: 24px;
+.content-divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 36px 0;
 }
 
+/* ─── Podcast Episodes ───────────────────────────────────────── */
 .episode-desc {
   font-family: var(--font-sans);
   font-size: 0.875rem;

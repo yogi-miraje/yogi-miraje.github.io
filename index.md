@@ -3,10 +3,13 @@ layout: home
 title: Yogi Miraje
 ---
 
-<div class="post-content bio-content">
-  <p>Hi, I'm Yogi.</p>
+<div class="post-content">
+  <div class="lead">
+    <p>Hi, I'm Yogi.</p>
+    <p>I build software systems that turn complex ideas into reliable products. My path has taken me through backend engineering, machine learning, and now systems where language models are part of the stack.</p>
+  </div>
 
-  <p>I build software systems that turn complex ideas into reliable products. My path has taken me through backend engineering, machine learning, and now systems where language models are part of the stack.</p>
+  <hr class="content-divider">
 
   <p>That path has shaped how I think.</p>
 
@@ -26,40 +29,3 @@ title: Yogi Miraje
 
   <p>It is about making software more capable while keeping the system grounded, observable, and under control.</p>
 </div>
-
-<section class="podcast-section">
-  <h2 class="section-heading">AI Blindspot</h2>
-  <p class="section-subheading">A human-in-the-loop podcast exploring AI's frontiers — and the blind spots we overlook.</p>
-  <ul class="post-list" id="episode-list">
-    <li class="episode-loading">Loading episodes…</li>
-  </ul>
-</section>
-
-<script>
-(function () {
-  var RSS = 'https://anchor.fm/s/ff1b9374/podcast/rss';
-  var API = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(RSS);
-  var list = document.getElementById('episode-list');
-
-  fetch(API)
-    .then(function (r) { return r.json(); })
-    .then(function (data) {
-      if (data.status !== 'ok' || !data.items.length) throw new Error();
-      list.innerHTML = data.items.map(function (ep) {
-        var date = new Date(ep.pubDate).toLocaleDateString('en-US', {
-          year: 'numeric', month: 'long', day: 'numeric'
-        });
-        var desc = ep.description.replace(/<[^>]+>/g, '').trim().substring(0, 160);
-        if (desc.length === 160) desc += '…';
-        return '<li>' +
-          '<a class="post-link" href="' + ep.link + '">' + ep.title + '</a>' +
-          '<span class="post-meta">' + date + '</span>' +
-          (desc ? '<p class="episode-desc">' + desc + '</p>' : '') +
-          '</li>';
-      }).join('');
-    })
-    .catch(function () {
-      list.innerHTML = '<li>Could not load episodes — <a href="https://podcasts.apple.com/us/podcast/ai-blindspot/id1768690362">listen on Apple Podcasts</a>.</li>';
-    });
-}());
-</script>

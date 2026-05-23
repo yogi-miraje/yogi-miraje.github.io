@@ -7,6 +7,9 @@
         <li class="{% if current_url == '/' or current_url == '/index.html' %}active{% endif %}">
           <a href="{{ '/' | relative_url }}">Content</a>
         </li>
+        <li class="{% if current_url contains 'podcast' %}active{% endif %}">
+          <a href="{{ '/podcast.html' | relative_url }}">Podcast</a>
+        </li>
         <li class="{% if page.layout == 'post' or current_url contains 'blog' %}active{% endif %}">
           <a href="{{ '/blog.html' | relative_url }}">Writing</a>
         </li>
