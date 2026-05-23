@@ -7,8 +7,9 @@ title: Yogi Miraje
   <div class="intro">
     <img src="{{ '/assets/img/profile.png' | relative_url }}" alt="Yogi Miraje" class="intro-photo">
     <div class="lead">
-      <p>Hi, I'm Yogi.</p>
-      <p>I build software systems that turn complex ideas into reliable products. My path has taken me through backend engineering, machine learning, and now systems where language models are part of the stack.</p>
+      <p>Hi, I'm Yogi</p>
+      <p>I work on bringing frontier AI into real-world applications by building systems that stay grounded, observable, and under control.</p>
+      <p>Currently, I'm a Principal AI Engineer at FactSet.</p>
     </div>
   </div>
 
