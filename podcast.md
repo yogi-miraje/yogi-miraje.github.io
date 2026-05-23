@@ -18,21 +18,31 @@ title: Podcast
 <script>
 (function () {
   var RSS = 'https://anchor.fm/s/ff1b9374/podcast/rss';
-  var API = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(RSS);
   var list = document.getElementById('episode-list');
 
-  fetch(API)
-    .then(function (r) { return r.json(); })
-    .then(function (data) {
-      if (data.status !== 'ok' || !data.items.length) throw new Error();
-      list.innerHTML = data.items.map(function (ep) {
-        var date = new Date(ep.pubDate).toLocaleDateString('en-US', {
+  // Fetch the RSS feed directly and parse it client-side so we always
+  // show the latest episodes (third-party JSON proxies cache stale copies).
+  fetch(RSS, { cache: 'no-store' })
+    .then(function (r) { return r.text(); })
+    .then(function (xml) {
+      var doc = new DOMParser().parseFromString(xml, 'application/xml');
+      var items = Array.prototype.slice.call(doc.querySelectorAll('item'));
+      if (!items.length) throw new Error('no items');
+
+      list.innerHTML = items.map(function (item) {
+        var get = function (tag) {
+          var el = item.querySelector(tag);
+          return el ? el.textContent.trim() : '';
+        };
+        var title = get('title');
+        var link = get('link');
+        var date = new Date(get('pubDate')).toLocaleDateString('en-US', {
           year: 'numeric', month: 'long', day: 'numeric'
         });
-        var desc = ep.description.replace(/<[^>]+>/g, '').trim().substring(0, 160);
+        var desc = get('description').replace(/<[^>]+>/g, '').trim().substring(0, 160);
         if (desc.length === 160) desc += '…';
         return '<li>' +
-          '<a class="post-link" href="' + ep.link + '">' + ep.title + '</a>' +
+          '<a class="post-link" href="' + link + '">' + title + '</a>' +
           '<span class="post-meta">' + date + '</span>' +
           (desc ? '<p class="episode-desc">' + desc + '</p>' : '') +
           '</li>';
