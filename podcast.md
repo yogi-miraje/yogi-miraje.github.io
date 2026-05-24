@@ -6,7 +6,7 @@ title: Podcast
 <article class="post">
   <header class="post-header">
     <div class="podcast-hero">
-      <img class="podcast-cover" id="podcast-cover" alt="AI Blindspot podcast cover">
+      <img class="podcast-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/0c/ee/8a/0cee8ace-73a2-029f-5973-7ec36cdb83d5/mza_4764223988593953722.jpg/600x600bb.webp" alt="AI Blindspot podcast cover">
       <div class="podcast-hero-text">
         <h1 class="post-title">AI Blindspot</h1>
         <p class="post-meta">A human-in-the-loop podcast exploring AI's frontiers — and the blind spots we overlook.</p>
@@ -38,17 +38,10 @@ title: Podcast
 (function () {
   var RSS = 'https://anchor.fm/s/ff1b9374/podcast/rss';
   var list = document.getElementById('episode-list');
-  var cover = document.getElementById('podcast-cover');
 
   fetch(RSS, { cache: 'no-store' })
     .then(function (r) { return r.text(); })
     .then(function (xml) {
-      var imgMatch = xml.match(/<itunes:image[^>]+href="([^"]+)"/);
-      if (imgMatch && cover) {
-        cover.src = imgMatch[1];
-        cover.style.display = 'block';
-      }
-
       var doc = new DOMParser().parseFromString(xml, 'application/xml');
       var items = Array.prototype.slice.call(doc.querySelectorAll('item'));
       if (!items.length) throw new Error('no items');

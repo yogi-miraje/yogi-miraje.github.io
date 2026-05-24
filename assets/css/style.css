@@ -304,7 +304,6 @@ body {
   flex-shrink: 0;
   border-radius: 12px;
   object-fit: cover;
-  display: none;
   background: var(--color-border);
 }
 
