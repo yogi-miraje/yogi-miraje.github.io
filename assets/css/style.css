@@ -290,6 +290,68 @@ body {
   margin: 36px 0;
 }
 
+/* ─── Podcast Hero ───────────────────────────────────────────── */
+.podcast-hero {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  margin-bottom: 36px;
+}
+
+.podcast-cover {
+  width: 152px;
+  height: 152px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  object-fit: cover;
+  background: var(--color-border);
+}
+
+.podcast-hero-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.podcast-hero-text .post-title {
+  margin-bottom: 6px;
+}
+
+.podcast-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.podcast-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.podcast-badge:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.podcast-badge--spotify {
+  background: #1DB954;
+  color: #fff;
+}
+
+.podcast-badge--apple {
+  background: #9c55f5;
+  color: #fff;
+}
+
 /* ─── Podcast Episodes ───────────────────────────────────────── */
 .episode-desc {
   font-family: var(--font-sans);
@@ -369,5 +431,15 @@ body {
 
   .post-title {
     font-size: 1.55rem;
+  }
+
+  .podcast-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .podcast-cover {
+    width: 120px;
+    height: 120px;
   }
 }
