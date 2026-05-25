@@ -13,6 +13,12 @@ title: Writing
     <ul class="post-list">
       <li>
         <h2>
+          <a class="post-link" href="{{ '/skills-as-the-product-layer-of-agentic-systems.html' | relative_url }}">Skills as the Product Layer of Agentic Systems</a>
+        </h2>
+        <span class="post-meta">25 May 2026</span>
+      </li>
+      <li>
+        <h2>
           <a class="post-link" href="{{ '/building-effective-ai-applications.html' | relative_url }}">Building effective AI applications</a>
         </h2>
         <span class="post-meta">30 April 2025</span>
