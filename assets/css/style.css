@@ -261,11 +261,6 @@ body {
   padding-bottom: 40px;
 }
 
-.home-content.post-content,
-.home-content .post-content {
-  line-height: 1.58;
-}
-
 .home-content .post-content p,
 .home-content p {
   margin-bottom: 0.78em;
@@ -288,11 +283,6 @@ body {
   font-size: 1.2rem;
   line-height: 1.65;
   color: var(--color-text);
-}
-
-.home-content .lead p {
-  font-size: 1.08rem;
-  line-height: 1.5;
 }
 
 .lead p:last-child {
@@ -416,10 +406,6 @@ body {
   .home-content .intro-photo {
     width: 112px;
     height: 112px;
-  }
-
-  .home-content .lead p {
-    font-size: 1rem;
   }
 
   .home-content .content-divider {
