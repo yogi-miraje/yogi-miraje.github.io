@@ -5,7 +5,7 @@
 
 <body>
   {% include header.html %}
-  <main class="main-content">
+  <main class="main-content{% if page.layout == 'home' %} home-content{% endif %}">
     {{ content }}
   </main>
 </body>
