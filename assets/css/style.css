@@ -256,6 +256,21 @@ body {
   gap: 28px;
 }
 
+.home-content {
+  padding-top: 26px;
+  padding-bottom: 40px;
+}
+
+.home-content.post-content,
+.home-content .post-content {
+  line-height: 1.58;
+}
+
+.home-content .post-content p,
+.home-content p {
+  margin-bottom: 0.78em;
+}
+
 .intro-photo {
   width: 228px;
   height: 228px;
@@ -275,6 +290,11 @@ body {
   color: var(--color-text);
 }
 
+.home-content .lead p {
+  font-size: 1.08rem;
+  line-height: 1.5;
+}
+
 .lead p:last-child {
   margin-bottom: 0;
 }
@@ -288,6 +308,23 @@ body {
   border: none;
   border-top: 1px solid var(--color-border);
   margin: 36px 0;
+}
+
+.home-content .intro {
+  gap: 24px;
+}
+
+.home-content .intro-photo {
+  width: 176px;
+  height: 176px;
+}
+
+.home-content .content-divider {
+  margin: 22px 0;
+}
+
+.home-content blockquote {
+  margin: 1em 0;
 }
 
 /* ─── Podcast Hero ───────────────────────────────────────────── */
@@ -418,15 +455,37 @@ body {
     padding: 32px 18px 72px;
   }
 
+  .home-content {
+    padding-top: 24px;
+    padding-bottom: 44px;
+  }
+
   .intro {
     flex-direction: column;
     gap: 18px;
+  }
+
+  .home-content .intro {
+    gap: 16px;
   }
 
   .intro-photo {
     width: 120px;
     height: 120px;
     align-self: flex-start;
+  }
+
+  .home-content .intro-photo {
+    width: 112px;
+    height: 112px;
+  }
+
+  .home-content .lead p {
+    font-size: 1rem;
+  }
+
+  .home-content .content-divider {
+    margin: 20px 0;
   }
 
   .post-title {
