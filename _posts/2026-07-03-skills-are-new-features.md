@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talk @ AI Engineer World's Fair 2026"
-date: 2026-07-02
+date: 2026-07-03
 author: Yogi Miraje
 ---
 
