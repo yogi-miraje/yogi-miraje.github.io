@@ -7,6 +7,7 @@ url: "https://yogendramiraje.com" # the base hostname & protocol for your site, 
 # Build settings
 markdown: kramdown
 theme: null # No theme, we'll build from scratch
+future: true # Build posts dated in the future (e.g. talks scheduled ahead)
 plugins:
   - jekyll-feed
 
