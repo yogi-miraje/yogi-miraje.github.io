@@ -7,6 +7,8 @@ author: Yogi Miraje
 
 Slides from my talk at AI Engineer's World Fair 2026.
 
+Github: [yogi-miraje/skills-demo](https://github.com/yogi-miraje/skills-demo)
+
 <div style="margin: 2rem 0;">
   <iframe
     id="skills-slides"

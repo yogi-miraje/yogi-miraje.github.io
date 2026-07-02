@@ -1,128 +1,79 @@
 ---
 layout: default
-title: Skills as the Product Layer of Agentic Systems
+title: Skills are New Features
 ---
 
 <article class="post">
   <header class="post-header">
-    <h1 class="post-title">Skills as the Product Layer of Agentic Systems</h1>
-    <span class="post-meta">25 May 2026</span>
+    <h1 class="post-title">Skills are New Features</h1>
+    <span class="post-meta">2 July 2026</span>
   </header>
 
   <div class="post-content">
 
-    <p>Every team building an AI product eventually hits the same question, usually after they've already answered it wrong: where does product-specific behavior live?</p>
+    <p>Most online discussion of skills focuses on coding harnesses: how to write a good skill for a coding agent. This post is different. It's about skills in agentic <em>products</em>, in non-coding domains: how to add skill support to your own harness, and what actually breaks in production.</p>
 
-    <p>Not "how do we make the agent smarter." The narrower one. A product needs the agent to act like a research assistant, or a portfolio analyst, or a support copilot. Where does that behavior actually go?</p>
+    <h2>From Screens to Conversation</h2>
 
-    <p>Most teams answer it badly. It ends up smeared across a system prompt nobody owns, a few tools that quietly encode undocumented assumptions, and a handful of agents that each reinvent the same logic. This works for a while. Then it breaks, and nobody can find the piece that broke.</p>
+    <p>Traditional products are a surface made of screens: buttons, forms, dashboards, workflows. Users navigate your UI to get things done. Agentic products collapse that surface into a conversation. The user talks to the agent, and the agent becomes the main way people get things done in your product.</p>
 
-    <p>I think the answer is skills. Not as a best practice you adopt because a blog post told you to, but as an actual architectural position: <strong>skills are the product layer of agentic systems.</strong></p>
+    <p>That collapse raises a real question. If the agent is now the interface, where does product behavior actually live? Where do your features go?</p>
 
-    <hr>
+    <h2>Who, What, and How</h2>
 
-    <h2>Why the obvious answers don't work</h2>
+    <p>A simple framing answers this. Prompts define <em>who</em> the agent is. Tools define <em>what</em> it can connect to. Skills define <em>how</em> a task gets done. As an industry, we've already converged on the answer: skills are the new features.</p>
 
-    <p>It's worth walking through the alternatives, because most teams try several of them before landing anywhere.</p>
+    <p>Anthropic's financial services plugins are a good example. Equity research and wealth management workflows that used to be buttons, dashboards, and dropdowns are now skills.</p>
 
-    <p><strong>Put it in the model.</strong> Fine-tuning product behavior into the weights is slow and expensive, and you get to redo it every time the product changes. You also can't inspect what it learned. The model is supposed to be general intelligence; it has no business knowing your output format.</p>
+    <p>One underrated effect of this shift is who gets to build features. Skills can be written by anyone who understands the product, not just engineers. That means non-engineers can now ship features too. Which raises another question: if anyone can ship a feature, what's left for engineers to do? The answer is that we ship the harness: the vehicle that lets skills run smoothly.</p>
 
-    <p><strong>Put it in the system prompt.</strong> This is where most teams end up. The prompt grows until it's a few thousand tokens of instructions that quietly contradict each other, with global policy and one-off feature quirks crammed into the same blob. Debugging it means rereading an essay. Versioning it means diffing prose.</p>
+    <h2>What a Skill Actually Is</h2>
 
-    <p><strong>Put it in the tools.</strong> Tools are primitive actions, which makes them both powerful and undisciplined. Hand every tool to every task and you get inconsistent behavior with no real governance. A tool that can do anything will, eventually, do the wrong thing.</p>
+    <p>Before talking about the harness, it helps to define the thing it's supporting. The dictionary definition of skill is "the ability to do something well." A model can function without one, but it needs skills to do a specific job well. Agent Skills are simply the way you teach an agent to do a specific task well.</p>
 
-    <p><strong>Create one agent per feature.</strong> Clean at first. Then you've got a dozen agents reimplementing the same context-fetching and the same formatting, and keeping them in sync becomes somebody's full-time job. Ownership splinters. Every new feature pays a tax.</p>
+    <p>In its simplest form, a skill is a single markdown file. In its most complex form, it's a folder with multiple files and executable scripts. Either way, the file called <code>SKILL.md</code> is the heart of it. The frontmatter holds the name and description. The body holds everything else, including references to other files.</p>
 
-    <p><strong>Hardcode the workflows.</strong> This one is reliable and also brittle. The product logic spreads across pipelines that don't know about each other, reuse turns into copy-paste, and changing anything starts to feel like surgery.</p>
+    <pre><code class="language-markdown">---
+name: company-research
+description: Use when the user asks for company research or a company report.
+---
 
-    <p>People have shipped all five of these. They each produce a different flavor of mess, but the underlying failure is identical: there's no clean place for product behavior to live.</p>
+# Company Research
 
-    <hr>
+1. Search the web for recent company information.
+2. Summarize findings into structured markdown.</code></pre>
 
-    <h2>What a skill actually is</h2>
+    <h2>Adding Skill Support to a Harness</h2>
 
-    <p>A skill is not a prompt template.</p>
+    <p>You need surprisingly little to support skills: a skill registry, a system prompt you control, and a file-read tool. That's the bare minimum. If your skills execute scripts, add a code execution environment too.</p>
 
-    <p>A prompt template is text that tells the model what to do. A skill is an executable artifact. It can call tools, run scripts, and carry its own files: reference docs, output templates, lookup tables, the example outputs that show what a good result is. It's closer to a microservice than a string.</p>
+    <p>The registry itself is simple. It's just a collection of skill frontmatter: the name, the description, and a path to the <code>SKILL.md</code> file. Nothing more.</p>
 
-    <p>Take a skill for equity research. It isn't a paragraph of instructions. It carries the analyst-approved templates, the specific tools that task is allowed to touch, the context the agent should pull before it starts, and the output format the desk expects. That whole bundle gets versioned and tested as one unit.</p>
+    <p>Say you have three skills: <code>company-research</code>, which searches the web and produces markdown; <code>report-html</code>, which turns that markdown into an HTML report; and <code>report-pdf</code>, which turns it into a PDF. At runtime, you strip out just the names and descriptions of every skill and append them to the system prompt.</p>
 
-    <p>Put more precisely, a skill is a product-specific capability package that tells a general agent how to do a repeatable task in a particular product context. It owns:</p>
+    <p>That's what the agent actually sees: your system prompt, plus a short list of available skills. If a user asks for a basic research report on a company, the agent recognizes it has a skill for that, and follows the instructions inside it. Once the research is generated, it moves on to the report skill and follows that.</p>
 
-    <ul>
-      <li><strong>Activation conditions</strong> — when to engage</li>
-      <li><strong>Context requirements</strong> — what it needs before starting</li>
-      <li><strong>Tool permissions</strong> — what it's allowed to use</li>
-      <li><strong>Procedure</strong> — how the work should be done</li>
-      <li><strong>Output contract</strong> — format, length, quality bar</li>
-      <li><strong>Assets</strong> — templates, reference material, examples</li>
-      <li><strong>Evals</strong> — how to tell whether it worked</li>
-    </ul>
+    <h2>Descriptions Are Routing Signals</h2>
 
-    <p>Everything product-specific now has somewhere to go, and the runtime underneath it stays general.</p>
+    <p>This is the biggest lesson from production. In the example above, two report skills exist, but only the HTML one fires by default. That's because the PDF skill's description explicitly says it should only be used when the user asks for a PDF. The description is what routes the request, not the skill's internal logic.</p>
 
-    <hr>
+    <p>A few rules follow from this. Write descriptions around the words a <em>user</em> would say, not around how you'd describe the skill internally. Keep descriptions distinct from each other. If two descriptions start looking similar, that's a sign to consolidate them into one skill. And don't let descriptions go stale. A stale description is one of the most common reasons a skill silently stops triggering.</p>
 
-    <h2>The shift most teams haven't made yet</h2>
+    <h2>Cut Skills by Intent, Not by Data Model</h2>
 
-    <p>Here's the part I think matters most, and the part most teams haven't internalized. A skill is a contribution boundary. It's a place where someone who isn't an engineer can do real work.</p>
+    <p>Early on, I built skills around narrow technical use cases, like "do estimates analysis" or "find transcript info." As real usage came in, it became clear this was the wrong cut, and I had to refactor more than once.</p>
 
-    <p>A product manager who knows the domain can write the conditions that decide when a skill fires. A domain expert can specify the output contract and drop in a few example outputs to calibrate against. The analyst team can own the reference material outright. When a business rule changes, whoever owns the skill edits it directly, instead of filing a ticket and waiting a sprint for an engineer to wire in a new branch.</p>
+    <p>Users don't think in terms of your data model. They think in terms of what they're trying to accomplish. In practice, that means replacing separate Fundamentals, Estimates, and Earnings Transcript skills with a single earnings-preparation skill that covers what a user actually wants when preparing for earnings season.</p>
 
-    <p>DevOps did something similar a layer down. Before it matured, shipping code meant understanding the servers it ran on. DevOps drew a clean line between the infrastructure and the application: engineers could push features without knowing how the deploy worked, and the platform team could rework the deploy without breaking everyone's features. The line is what made that possible.</p>
+    <h2>Skills Are Contracts, Not Documentation</h2>
 
-    <p>Skills are that line for AI products. Engineers own the runtime and the tools beneath it. Product people own the behavior on top. The interesting consequence isn't tidier code. It's that the people closest to the product can change how it behaves without routing every change through engineering.</p>
+    <p>A true story from production: we upgraded to a new model, and skills that had worked fine started failing. Nothing about the skills themselves had changed. It turned out some critical instructions were placed near the end of the file, and the new model was weighting the beginning of the document much more heavily than the old one did.</p>
 
-    <hr>
+    <p>The lesson is that skills aren't documentation you write once and forget. They're contracts, and those contracts are versioned to a specific model. Every time you bump model versions, re-run your evals against your skill library before trusting it in production.</p>
 
-    <h2>What this looks like in practice</h2>
+    <h2>TLDR;</h2>
 
-    <p>The end state is one general-purpose runtime running many skills, with a permission layer underneath that decides what each skill is allowed to touch.</p>
-
-    <pre><code>General agent runtime
-  + Skill registry           (discoverable, versioned capabilities)
-  + Context providers        (pre-skill context assembly)
-  + Tool permission layer    (per-skill authorization)
-  + Skill-level evals        (independent quality measurement)
-  + Product surfaces         (the experiences built on top)</code></pre>
-
-    <p>Every skill is versioned on its own and carries its own evals, so you can change one without redeploying the runtime or worrying about the rest. Adding a capability means writing a skill rather than standing up another agent. And when two surfaces need the same behavior, they share the skill instead of copy-pasting a prompt between them.</p>
-
-    <p>That buys you a handful of things that are otherwise hard to get. The same skill runs on the web app and the API unchanged. Because its tool access is fixed, you can actually trace what it did when something goes sideways. Its evals are scoped tightly enough to mean something. And there's a name attached to it: a team that owns this skill, instead of a shared system prompt that everyone edits and no one is responsible for.</p>
-
-    <hr>
-
-    <h2>The coding agent proof point</h2>
-
-    <p>Coding agents already work this way, which is the best evidence we have that the pattern holds.</p>
-
-    <p>A good coding skill knows your repo's conventions, the scripts worth running, and which tests have to pass before anything ships. It carries that context around with it and produces output against a known contract. That is already a product-specific capability package riding on a general execution environment — the exact thing I'm arguing product teams should be building.</p>
-
-    <p>The discipline that makes those skills reliable is the same discipline product work needs: be explicit about what context the task requires, which tools it can use, and what counts as a correct result. None of that is new. It just hasn't moved out of the repo and into the rest of the product yet.</p>
-
-    <hr>
-
-    <h2>Gotchas</h2>
-
-    <p>These are the things that tend to bite teams the first time they structure behavior this way.</p>
-
-    <p><strong>Skills without evals are just hope.</strong> If you can't measure a skill, you can't tell whether your last edit helped it or quietly broke it. Build a small eval set alongside the skill; five examples is enough to start. Skip this and every future change becomes a guess.</p>
-
-    <p><strong>The description field is a trigger, not a summary.</strong> When the agent starts up, it reads a one-line description of every available skill and uses that to decide which one to reach for. So write the description for the model, not for a human skimming a list. When a skill mysteriously never fires, a vague description is usually the reason.</p>
-
-    <p><strong>Someone has to own each skill.</strong> The contribution boundary only works if there's a name attached. Ownerless skills rot: the instructions go stale, the gotchas never get written down, and two near-duplicates slowly drift apart. Assign an owner before you publish, not after it breaks.</p>
-
-    <p><strong>Watch for sprawl.</strong> The thing that makes skills easy to create also makes them easy to over-create. Two skills that overlap will eventually hand the agent conflicting instructions for the same situation. Before writing a new one, check whether an existing skill should just be extended. This gets more important as the library grows, not less.</p>
-
-    <hr>
-
-    <h2>The core principle</h2>
-
-    <p>None of this makes the agent any smarter, and that's the point worth sitting with. The model is exactly as capable either way. What changes is that product behavior finally has somewhere to live that isn't the model, the system prompt, or a pile of one-off agents.</p>
-
-    <p>So a skill is a deployable unit of product behavior. You can write it, test it, version it, and hand it to someone who isn't an engineer. It changes as the product changes, on its own clock.</p>
-
-    <p>We're early here, and I'd rather be honest about that than pretend otherwise. Most of what I know came from getting it wrong and adjusting. Treat all of this as field notes rather than a finished playbook. The fastest way to understand any of it is to build one skill, hit your first real gotcha, and write that gotcha down.</p>
+    <p>Our role as engineers is shifting. Instead of shipping individual features, we're shipping the harness that lets skills run: the registry, the routing, the system prompt scaffolding around them. Agentic products are increasingly built on skill-centric harnesses, where skills carry the "how" of getting work done. And because those skills are contracts tied to a specific model, they need the same evaluation discipline you'd give any other production system.</p>
 
   </div>
 </article>

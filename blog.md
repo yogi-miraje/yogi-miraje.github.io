@@ -23,9 +23,9 @@ title: Writing
 
       <li>
         <h2>
-          <a class="post-link" href="{{ '/skills-as-the-product-layer-of-agentic-systems.html' | relative_url }}">Skills as the Product Layer of Agentic Systems</a>
+          <a class="post-link" href="{{ '/skills-as-the-product-layer-of-agentic-systems.html' | relative_url }}">Skills are New Features</a>
         </h2>
-        <span class="post-meta">25 May 2026</span>
+        <span class="post-meta">2 July 2026</span>
       </li>
       <li>
         <h2>
