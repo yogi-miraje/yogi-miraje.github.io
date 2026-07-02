@@ -11,13 +11,13 @@ title: Writing
   <div class="post-content">
 
     <ul class="post-list">
-      {% assign skills_new_features = site.posts | where: "title", "Skills are New Features" | first %}
-      {% if skills_new_features %}
+      {% assign ai_engineer_talk = site.posts | where: "title", "Talk @ AI Engineer World's Fair 2026" | first %}
+      {% if ai_engineer_talk %}
         <li>
           <h2>
-            <a class="post-link" href="{{ skills_new_features.url | relative_url }}">{{ skills_new_features.title | escape }}</a>
+            <a class="post-link" href="{{ ai_engineer_talk.url | relative_url }}">{{ ai_engineer_talk.title | escape }}</a>
           </h2>
-          <span class="post-meta">{{ skills_new_features.date | date: "%d %B %Y" }}</span>
+          <span class="post-meta">{{ ai_engineer_talk.date | date: "%d %B %Y" }}</span>
         </li>
       {% endif %}
 
@@ -25,7 +25,7 @@ title: Writing
         <h2>
           <a class="post-link" href="{{ '/skills-as-the-product-layer-of-agentic-systems.html' | relative_url }}">Skills are New Features</a>
         </h2>
-        <span class="post-meta">2 July 2026</span>
+        <span class="post-meta">25 May 2026</span>
       </li>
       <li>
         <h2>
@@ -35,7 +35,7 @@ title: Writing
       </li>
 
       {% for post in site.posts %}
-        {% unless post.title == "Skills are New Features" %}
+        {% unless post.title == "Talk @ AI Engineer World's Fair 2026" %}
           <li>
             <h2>
               <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>

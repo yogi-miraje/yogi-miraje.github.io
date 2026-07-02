@@ -6,7 +6,7 @@ title: Skills are New Features
 <article class="post">
   <header class="post-header">
     <h1 class="post-title">Skills are New Features</h1>
-    <span class="post-meta">2 July 2026</span>
+    <span class="post-meta">25 May 2026</span>
   </header>
 
   <div class="post-content">
