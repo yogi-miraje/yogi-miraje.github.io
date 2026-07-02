@@ -11,6 +11,16 @@ title: Writing
   <div class="post-content">
 
     <ul class="post-list">
+      {% assign skills_new_features = site.posts | where: "title", "Skills are New Features" | first %}
+      {% if skills_new_features %}
+        <li>
+          <h2>
+            <a class="post-link" href="{{ skills_new_features.url | relative_url }}">{{ skills_new_features.title | escape }}</a>
+          </h2>
+          <span class="post-meta">{{ skills_new_features.date | date: "%d %B %Y" }}</span>
+        </li>
+      {% endif %}
+
       <li>
         <h2>
           <a class="post-link" href="{{ '/skills-as-the-product-layer-of-agentic-systems.html' | relative_url }}">Skills as the Product Layer of Agentic Systems</a>
@@ -25,12 +35,14 @@ title: Writing
       </li>
 
       {% for post in site.posts %}
-        <li>
-          <h2>
-            <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-          </h2>
-          <span class="post-meta">{{ post.date | date: "%d %B %Y" }}</span>
-        </li>
+        {% unless post.title == "Skills are New Features" %}
+          <li>
+            <h2>
+              <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+            </h2>
+            <span class="post-meta">{{ post.date | date: "%d %B %Y" }}</span>
+          </li>
+        {% endunless %}
       {% endfor %}
     </ul>
 
