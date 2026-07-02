@@ -13,7 +13,13 @@ title: Writing
     <ul class="post-list">
       <li>
         <h2>
-          <a class="post-link" href="{{ '/skills-as-the-product-layer-of-agentic-systems.html' | relative_url }}">Skills as the Product Layer of Agentic Systems</a>
+          <a class="post-link" href="{{ '/talk-ai-engineer-worlds-fair.html' | relative_url }}">Talk @ AI Engineer World's Fair</a>
+        </h2>
+        <span class="post-meta">02 July 2026</span>
+      </li>
+      <li>
+        <h2>
+          <a class="post-link" href="{{ '/skills-are-new-features.html' | relative_url }}">Skills are New Features</a>
         </h2>
         <span class="post-meta">25 May 2026</span>
       </li>

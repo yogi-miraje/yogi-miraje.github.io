@@ -1,11 +1,11 @@
 ---
 layout: default
-title: Skills as the Product Layer of Agentic Systems
+title: Skills are New Features
 ---
 
 <article class="post">
   <header class="post-header">
-    <h1 class="post-title">Skills as the Product Layer of Agentic Systems</h1>
+    <h1 class="post-title">Skills are New Features</h1>
     <span class="post-meta">25 May 2026</span>
   </header>
 
