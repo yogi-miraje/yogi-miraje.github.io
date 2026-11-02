@@ -75,19 +75,19 @@ body {
   font-family: var(--font-sans);
   font-size: 0.875rem;
   font-weight: 400;
-  color: var(--color-muted);
+  color: var(--color-accent);
   text-decoration: none;
   letter-spacing: 0.01em;
   transition: color 0.15s ease;
 }
 
-.masthead-nav a:hover {
-  color: var(--color-accent);
+.masthead-nav li.active a {
+  font-weight: 500;
 }
 
-.masthead-nav li.active a {
-  color: var(--color-text);
-  font-weight: 500;
+.masthead-nav a:hover,
+.masthead-nav a:focus-visible {
+  font-weight: 700;
 }
 
 /* ─── Main Content ───────────────────────────────────────────── */
