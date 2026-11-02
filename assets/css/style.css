@@ -50,7 +50,7 @@ body {
   font-family: var(--font-serif);
   font-size: 1.4rem;
   font-weight: 600;
-  color: var(--color-text);
+  color: var(--color-accent);
   letter-spacing: -0.03em;
   text-decoration: none;
   transition: color 0.15s ease;
@@ -215,6 +215,67 @@ body {
 
 .post-link:hover {
   color: var(--color-accent);
+}
+
+/* ─── Experience ─────────────────────────────────────────────── */
+.experience-timeline {
+  list-style: none;
+}
+
+.experience-entry {
+  display: grid;
+  grid-template-columns: 162px minmax(0, 1fr);
+  column-gap: 28px;
+}
+
+.experience-date {
+  padding-top: 4px;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--color-muted);
+}
+
+.experience-detail {
+  position: relative;
+  border-left: 1px solid var(--color-border);
+  padding: 0 0 36px 28px;
+}
+
+.experience-detail::before {
+  content: '';
+  position: absolute;
+  top: 11px;
+  left: -4px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-muted);
+}
+
+.experience-entry:first-child .experience-detail::before {
+  background: var(--color-accent);
+}
+
+.experience-entry:last-child .experience-detail {
+  padding-bottom: 0;
+  border-left-color: transparent;
+}
+
+.experience-detail h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.experience-role {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin: 2px 0 14px;
+}
+
+.experience-detail p + p {
+  margin-top: 14px;
 }
 
 /* ─── Contact ────────────────────────────────────────────────── */
@@ -426,6 +487,7 @@ body {
   .masthead-inner {
     padding: 26px 18px 18px;
     gap: 16px;
+    flex-wrap: wrap;
   }
 
   .masthead-name {
@@ -435,6 +497,33 @@ body {
   .masthead-nav ul {
     gap: 16px;
     flex-wrap: wrap;
+  }
+
+  .experience-entry {
+    display: block;
+    position: relative;
+    border-left: 1px solid var(--color-border);
+    padding: 0 0 30px 22px;
+    margin-left: 3px;
+  }
+
+  .experience-entry:last-child {
+    border-left-color: transparent;
+    padding-bottom: 0;
+  }
+
+  .experience-date {
+    padding: 0 0 5px;
+  }
+
+  .experience-detail {
+    position: static;
+    border: 0;
+    padding: 0;
+  }
+
+  .experience-detail::before {
+    top: 7px;
   }
 
   .masthead-nav a {

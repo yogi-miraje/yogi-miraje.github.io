@@ -4,6 +4,12 @@
     <nav class="masthead-nav">
       <ul>
         {% assign current_url = page.url | downcase %}
+        <li class="{% if current_url == '/' %}active{% endif %}">
+          <a href="{{ '/' | relative_url }}"{% if current_url == '/' %} aria-current="page"{% endif %}>Home</a>
+        </li>
+        <li class="{% if current_url contains 'experience' %}active{% endif %}">
+          <a href="{{ '/experience.html' | relative_url }}"{% if current_url contains 'experience' %} aria-current="page"{% endif %}>Career</a>
+        </li>
         <li class="{% if current_url contains 'podcast' %}active{% endif %}">
           <a href="{{ '/podcast.html' | relative_url }}">Podcast</a>
         </li>
