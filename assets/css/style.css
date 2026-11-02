@@ -86,7 +86,9 @@ body {
 }
 
 .masthead-nav a:hover,
-.masthead-nav a:focus-visible {
+.masthead-nav a:focus-visible,
+.masthead-nav li.active a:hover,
+.masthead-nav li.active a:focus-visible {
   font-weight: 700;
 }
 
