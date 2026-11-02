@@ -15,17 +15,13 @@ title: Yogi Miraje
 
   <hr class="content-divider">
 
-  <p>My path has taken me through backend engineering, machine learning, and now systems where language models are part of the stack.</p>
+  <p>My path went from backend engineering to machine learning, and now to systems with language models in the stack.</p>
 
-  <p>That background shaped how I think.</p>
+  <p>This background has shaped how I approach building AI systems holistically. I look at what breaks, what scales, how we measure trust, and what happens when real users depend on the system.</p>
 
-  <p>I don't approach these systems from the demo outward. I approach them from the failure modes inward: what breaks, what scales, what can be trusted, what needs to be measured, and what happens when real users depend on them.</p>
+  <p>Before adding any complexity, I try to understand the user's actual problem and the edge cases.</p>
 
-  <p>My default question is simple:</p>
+  <p>From there, I always come back to one question. What is the simplest thing that actually works? I build that first, get real feedback, and iterate toward what the user actually needs.</p>
 
-  <blockquote>What is the simplest thing that actually works?</blockquote>
-
-  <p>That usually means resisting complexity before adding it. Before reaching for a larger model, a multi-step workflow, or a network of agents, I want to understand the need underneath: the user problem, the edge cases, the cost of being wrong, and the point where automation should stop.</p>
-
-  <p>I'm most interested in the space between emerging AI capabilities and the real problems they can solve for end users.</p>
+  <p>Knowing where automation should stop is just as important as knowing what to automate. That is the work I enjoy most, taking new AI capabilities and turning them into software people can rely on.</p>
 </div>
