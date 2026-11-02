@@ -75,7 +75,7 @@ body {
   font-family: var(--font-sans);
   font-size: 0.875rem;
   font-weight: 400;
-  color: var(--color-accent);
+  color: var(--color-text);
   text-decoration: none;
   letter-spacing: 0.01em;
   transition: color 0.15s ease;
@@ -89,6 +89,7 @@ body {
 .masthead-nav a:focus-visible,
 .masthead-nav li.active a:hover,
 .masthead-nav li.active a:focus-visible {
+  color: var(--color-accent);
   font-weight: 700;
 }
 
